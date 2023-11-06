@@ -49,16 +49,14 @@ const App = () => {
         Flood Monitoring App
       </Typography>
       <Search {...{ selectedStation, setSelectedStation }} />
-      {isLoading ? (
+      {selectedStation && isLoading ? (
         <CircularProgress />
       ) : (
-        selectedStation && (
-          <>
-            <Graph readings={readings} />
-            <Divider sx={{ my: 4 }} />
-            <Table readings={readings} />
-          </>
-        )
+        <>
+          <Graph readings={readings} />
+          <Divider sx={{ my: 4 }} />
+          <Table readings={readings} />
+        </>
       )}
     </Container>
   )
